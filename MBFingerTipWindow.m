@@ -396,9 +396,12 @@
         if (self == window)
             continue;
 
-        UIViewController *realRootViewController = window.rootViewController;
-        if (realRootViewController != nil)
-            return realRootViewController;
+        if ([window isKindOfClass:[MBFingerTipWindow class]]) {
+            UIViewController *realRootViewController = window.rootViewController;
+            if (realRootViewController != nil)
+                return realRootViewController;
+        }
+        
     }
     return [super rootViewController];
 }
